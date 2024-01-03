@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Etch-a-Sketch</title>
+    <style>
+      .grid {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+      }
+      .grid-row {
+        display: flex;
+      }
+      .grid-row div {
+        width: 100%;
+        height: 50px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Etch-a-Sketch</h1>
+  </body>
+  <script>
+    function createGrid(rows, columns)
+    {
+      const grid = document.createElement('div');
+      grid.setAttribute('class', 'grid');
+      for (let i = 0; i < rows; i++)
+      {
+        const row = document.createElement('div');
+        row.setAttribute('class', 'grid-row');
+        for (let j = 0; j < columns; j++)
+          row.appendChild(document.createElement('div'));
+        grid.appendChild(row);
+      }
+      return grid;
+    }
+    document.querySelector('body')
+      .appendChild(createGrid(16, 16));
+  </script>
+</html>
+
