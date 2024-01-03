@@ -24,6 +24,7 @@
   <body>
     <h1>Etch-a-Sketch</h1>
     <button id="setGridSize">Set Grid Size</button>
+    <button id="clear">Clear</button>
   </body>
   <script>
     function createGrid(size)
@@ -50,6 +51,13 @@
       }
       return grid;
     }
+    function clearGrid()
+    {
+      document.querySelectorAll('.grid-row div')
+        .forEach(div => {div.style.backgroundColor = 'white';});
+    }
+    document.querySelector('#clear')
+      .addEventListener('click', clearGrid);
     document.querySelector('#setGridSize')
       .addEventListener('click', function() {
         let size;
